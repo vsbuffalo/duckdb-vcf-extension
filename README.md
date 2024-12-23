@@ -9,20 +9,19 @@ Here's are a few examples, using the [CADD](https://cadd.gs.washington.edu)
 (want to add it? reach out!).
 
 ```sql
-SELECT chrom, pos, ref, alt info_RS, info_PH
-  FROM read_vcf('test_data/chr22.vcf.bgz', info_cols => 'RS,PH')
-  LIMIT 5;
-┌─────────┬──────────┬─────────┬─────────┬────────────────────┐
-│  chrom  │   pos    │   ref   │ info_RS │      info_PH       │
-│ varchar │  int32   │ varchar │ varchar │       double       │
-├─────────┼──────────┼─────────┼─────────┼────────────────────┤
-│ 22      │ 10510000 │ G       │ A       │  9.838000297546387 │
-│ 22      │ 10510000 │ G       │ C       │   9.46500015258789 │
-│ 22      │ 10510000 │ G       │ T       │  9.343000411987305 │
-│ 22      │ 10510001 │ A       │ C       │ 10.770000457763672 │
-│ 22      │ 10510001 │ A       │ G       │ 11.119999885559082 │
-└─────────┴──────────┴─────────┴─────────┴────────────────────┘
--- Run Time (s): real 0.008 user 0.007143 sys 0.000640
+SELECT chrom, pos, ref, alt, info_RS, info_PH
+  FROM read_vcf('test_data/chr22.vcf.bgz', info_cols => 'RS,PH') LIMIT 5;
+┌─────────┬──────────┬─────────┬─────────┬────────────────────┬────────────────────┐
+│  chrom  │   pos    │   ref   │   alt   │      info_RS       │      info_PH       │
+│ varchar │  int32   │ varchar │ varchar │       double       │       double       │
+├─────────┼──────────┼─────────┼─────────┼────────────────────┼────────────────────┤
+│ 22      │ 10510000 │ G       │ A       │ 0.8498740196228027 │  9.838000297546387 │
+│ 22      │ 10510000 │ G       │ C       │ 0.8129429817199707 │   9.46500015258789 │
+│ 22      │ 10510000 │ G       │ T       │ 0.8005859851837158 │  9.343000411987305 │
+│ 22      │ 10510001 │ A       │ C       │ 0.9379389882087708 │ 10.770000457763672 │
+│ 22      │ 10510001 │ A       │ G       │ 0.9674140214920044 │ 11.119999885559082 │
+└─────────┴──────────┴─────────┴─────────┴────────────────────┴────────────────────┘
+-- Run Time (s): real 0.008 user 0.006297 sys 0.001928
 ```
 
 ```sql
@@ -113,7 +112,7 @@ To run the extension code, simply start the shell with
 
 
 ```sql
-SELECT chrom, pos, ref, alt info_RS, info_PH
+SELECT chrom, pos, ref, alt, info_RS, info_PH
   FROM read_vcf('test_data/chr22.vcf.bgz', info_cols => 'RS,PH')
   LIMIT 5;
 ┌─────────┬──────────┬─────────┬─────────┬────────────────────┐
@@ -126,6 +125,7 @@ SELECT chrom, pos, ref, alt info_RS, info_PH
 │ 22      │ 10510001 │ A       │ C       │ 10.770000457763672 │
 │ 22      │ 10510001 │ A       │ G       │ 11.119999885559082 │
 └─────────┴──────────┴─────────┴─────────┴────────────────────┘
+
 ```
 
 ### Running the tests

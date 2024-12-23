@@ -4,6 +4,7 @@
     "curl",
     "liblzma",
     "zlib",
-    "bzip2"
+    "bzip2",
+    "libdeflate"
   ]
 }

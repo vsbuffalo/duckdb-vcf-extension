@@ -15,22 +15,6 @@ CMakeFiles/
 *.dylib
 *.a
 
-# Remove these lines since we need these for vendored htslib
-# src/htslib/config.*
-# src/htslib/version.h
-# src/htslib/htslib*.pc*
-# src/htslib/config_vars.h
-
-# Ignore compiled binaries
-src/htslib/annot-tsv
-src/htslib/bgzip
-src/htslib/htsfile
-src/htslib/tabix
-
-# Ignore tests
-src/htslib/test/*
-!src/htslib/test/*.c
-test_data/*.bgz
-
-# Ignore autoconfigure
-src/htslib/autom4te.cache/
+# Third party htslib
+third_party/htslib/htslib-1.21.tar.bz2
+third_party/htslib/htslib-1.21/
