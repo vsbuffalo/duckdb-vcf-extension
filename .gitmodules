@@ -6,6 +6,3 @@
 	path = extension-ci-tools
 	url = https://github.com/duckdb/extension-ci-tools
 	branch = main
-[submodule "htslib"]
-	path = src/htslib
-	url = https://github.com/samtools/htslib.git
