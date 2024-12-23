@@ -1,4 +1,4 @@
-# DuckDb template originals
+# Original .gitignore content
 build
 .idea
 cmake-build-debug
@@ -15,23 +15,22 @@ CMakeFiles/
 *.dylib
 *.a
 
-# Generated files
-cadd_mb_results.tsv
-src/htslib/config.*
-src/htslib/version.h
-src/htslib/htslib*.pc*
-src/htslib/config_vars.h
+# Remove these lines since we need these for vendored htslib
+# src/htslib/config.*
+# src/htslib/version.h
+# src/htslib/htslib*.pc*
+# src/htslib/config_vars.h
 
-# Compiled binaries
+# Ignore compiled binaries
 src/htslib/annot-tsv
 src/htslib/bgzip
 src/htslib/htsfile
 src/htslib/tabix
+
+# Ignore tests
 src/htslib/test/*
 !src/htslib/test/*.c
-
-# Test data
 test_data/*.bgz
 
-# Autoconfigure
+# Ignore autoconfigure
 src/htslib/autom4te.cache/
