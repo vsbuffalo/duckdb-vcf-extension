@@ -1,5 +1,9 @@
 {
   "dependencies": [
-    "openssl"
+    "openssl",
+    "curl",
+    "liblzma",
+    "zlib",
+    "bzip2"
   ]
 }
