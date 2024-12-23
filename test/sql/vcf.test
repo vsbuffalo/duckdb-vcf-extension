@@ -1,0 +1,39 @@
+# name: test/sql/vcf.test
+# description: test vcf extension
+# group: [vcf]
+
+# Require statement will ensure this test is run with this extension loaded
+require vcf
+
+# Simple query test, without info columns.
+query TITTTRT
+SELECT *
+FROM read_vcf('test_data/chr22_100k_sample.vcf.bgz')
+LIMIT 5;
+----
+22	10510000	NULL	G	A	NULL	PASS
+22	10510000	NULL	G	C	NULL	PASS
+22	10510000	NULL	G	T	NULL	PASS
+22	10510001	NULL	A	C	NULL	PASS
+22	10510001	NULL	A	G	NULL	PASS
+
+
+# Simple query test, with info columns.
+query TITTRR
+SELECT chrom, pos, ref, alt, info_RS, info_PH
+FROM read_vcf('test_data/chr22_100k_sample.vcf.bgz', info_cols => 'RS,PH')
+LIMIT 5;
+----
+22	10510000	G	A	0.8498740196228027	9.838000297546387
+22	10510000	G	C	0.8129429817199707	9.46500015258789
+22	10510000	G	T	0.8005859851837158	9.343000411987305
+22	10510001	A	C	0.9379389882087708	10.770000457763672
+22	10510001	A	G	0.9674140214920044	11.119999885559082
+
+
+# Get total count test.
+query I
+SELECT COUNT(*)
+FROM read_vcf('test_data/chr22_100k_sample.vcf.bgz');
+----
+99971

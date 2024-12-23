@@ -1,0 +1,6 @@
+CompileFlags:
+  Add:
+    - "-I${workspaceFolder}/duckdb/src/include"
+    - "-I${workspaceFolder}/duckdb/third_party/httplib/include"
+    - "-I${workspaceFolder}/src/include"
+    - "-I${workspaceFolder}/htslib"
